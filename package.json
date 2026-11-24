@@ -1,0 +1,94 @@
+{
+  "name": "dsh-session-bot",
+  "version": "0.1.0",
+  "description": "Turn your existing DSH sessions into a team of bots: give a session a badge, and it can be handed work, remember what it learned, and hand work to the others.",
+  "type": "module",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json",
+    "./client": "./lib/client.js"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "bot",
+    "session",
+    "team",
+    "multi-agent",
+    "orchestration"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "manifestVersion": 1,
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-workspace",
+        "@deepseek-ai/dsh-client-ui-context-menu"
+      ],
+      "manifestVersion": 1
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "check": "tsc --noEmit && tsdown"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0",
+    "dsh": "^0.2.1-alpha.2"
+  },
+  "dependencies": {
+    "@deepseek-ai/dsh-commands": "0.2.1-alpha.2",
+    "zod": "4.4.3"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "4.0.5-alpha.1",
+    "@deepseek-ai/dsh-agent": "^0.2.1-alpha.2",
+    "@deepseek-ai/dsh-api-session-controller": "^0.2.1-alpha.2",
+    "@deepseek-ai/dsh-llm": "^0.2.1-alpha.2",
+    "@deepseek-ai/dsh-permission-presets": "^0.2.1-alpha.2",
+    "@deepseek-ai/dsh-session": "^0.2.1-alpha.2",
+    "@deepseek-ai/dsh-session-persistence": "^0.2.1-alpha.2",
+    "@deepseek-ai/dsh-system-prompt": "^0.2.1-alpha.2",
+    "@deepseek-ai/dsh-tools": "^0.2.1-alpha.2",
+    "@deepseek-ai/dsh-workspace": "^0.2.1-alpha.2"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.0.5-alpha.1",
+    "@deepseek-ai/dsh-agent": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-api-session-controller": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-client-ui-slots": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-host-webserver": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-llm": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-permission-presets": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-session": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-session-persistence": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-system-prompt": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-tools": "0.2.1-alpha.2",
+    "@deepseek-ai/dsh-workspace": "0.2.1-alpha.2",
+    "@types/node": "22.20.0",
+    "@types/react": "18.3.28",
+    "@types/react-dom": "18.3.7",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tsdown": "0.22.14",
+    "typescript": "6.0.3"
+  }
+}
